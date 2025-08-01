@@ -10,10 +10,10 @@ from pydantic import BaseModel
 from typing import List, Optional
 import logging
 
-from ..database import get_db
-from ..models import User, Transaction, Account
-from ..utils.security import get_current_user
-from ..services.simplefin import SimpleFINService, SimpleFINError
+from database import get_db
+from models import User, Transaction, Account
+from utils.security import get_current_user
+from services.simplefin import SimpleFINService, SimpleFINError
 
 logger = logging.getLogger(__name__)
 
