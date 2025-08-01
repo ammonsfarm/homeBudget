@@ -17,7 +17,9 @@ echo "📁 Project root: $PROJECT_ROOT"
 # Load environment variables
 if [ -f "$PROJECT_ROOT/.env" ]; then
     echo "📋 Loading environment variables..."
-    export $(grep -v '^#' "$PROJECT_ROOT/.env" | xargs)
+    set -a
+    source <(grep -v '^#' "$PROJECT_ROOT/.env" | grep -v '^$' | grep '=')
+    set +a
 else
     echo "⚠️  No .env file found. Creating from example..."
     cp "$PROJECT_ROOT/.env.example" "$PROJECT_ROOT/.env"
